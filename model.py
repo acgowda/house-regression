@@ -20,6 +20,7 @@ class Model:
         
     def __str__(self):
         return "This is a {} model which predicts {} using the following predictors: {}.".format(self.t, self.y.name, ', '.join(self.X.columns))
+    
     def plot(self):
         xfit = np.linspace(0.01, self.X_train.max(), 1000 * self.n) # new x
         yfit = self.m.predict(xfit) # corresponding f(new x)
@@ -43,7 +44,7 @@ def data_encoder(data):
     Encode all categorical values in the dataframe into numeric values
     
     @param data: the original dataframe
-    @return catedata: all categorical variables transformed to numerical variables
+    @return data: the same dataframe with all categorical variables encoded
     """
     le = preprocessing.LabelEncoder()
     cols = data.columns

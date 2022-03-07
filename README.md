@@ -17,12 +17,15 @@ Scope and limitations:
 
 
 License and terms of use
+
 See LICENSE.
 
 References and acknowledgement
+
 Scikit-learn: https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
 Seaborn: https://seaborn.pydata.org/generated/seaborn.heatmap.html?highlight=heatmap#seaborn.heatmap
 
 
 Data source: https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data
+
 The data set contains 79 explanatory variables describing (almost) every aspect of residential homes in Ames, Iowa.

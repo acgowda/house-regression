@@ -7,7 +7,24 @@ from sklearn.pipeline import make_pipeline
 from sklearn.linear_model import LinearRegression
 
 class Model:
+    '''
+    a class that reads different types of regression model,
+    gives back the plot of each model and calculates the score and cross-validation score of each model
+    to determine which model fits the data better.
+    '''
+    
     def __init__(self, model, X, y, title):
+        '''
+        initialize model and variables
+        split the data into train and test groups
+        and fit the train data using the model
+        Args:
+        regression via PolynomialRegression()
+        predictor and target data X and y
+        short name of the model
+        Returns:
+        None
+        '''
         self.m = model
         self.X = X
         self.y = y
@@ -19,9 +36,15 @@ class Model:
 
         
     def __str__(self):
+        '''
+        returns information about the chosen model
+        '''
         return "This is a {} model which predicts {} using the following predictors: {}.".format(self.t, self.y.name, ', '.join(self.X.columns))
     
     def plot(self):
+        '''
+        shows regression plots about each feature in predictor data and target data sale prices
+        '''
         xfit = np.linspace(0.01, self.X_train.max(), 1000 * self.n) # new x
         yfit = self.m.predict(xfit) # corresponding f(new x)
 
@@ -34,9 +57,21 @@ class Model:
         plt.show()
         
     def score(self):
+        '''
+        Args:
+        None
+        Returns:
+        the coefficient of determination of the prediction
+        '''
         return self.m.score(self.X_test, self.y_test)
     
     def cv_score(self, cv = 10):
+        '''
+        Args:
+        None
+        Returns:
+        the cross-validation score with 10 splits
+        '''
         return cross_val_score(self.m, self.X_train, self.y_train, cv = 10).mean()
 
 def data_encoder(data):
@@ -57,4 +92,11 @@ def data_encoder(data):
     return data
 
 def PolynomialRegression(degree=2, **kwargs):
+    '''
+    generare a polynomial feature
+    Args:
+    degree of the polynomial regression
+    Returns:
+    the polynomial matrix with degree n
+    '''
     return make_pipeline(preprocessing.PolynomialFeatures(degree), LinearRegression(**kwargs))

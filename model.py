@@ -1,31 +1,37 @@
 import numpy as np
+import pandas as pd
 from matplotlib import pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import cross_val_score
 from sklearn import preprocessing
-from sklearn.pipeline import make_pipeline
+from sklearn.pipeline import make_pipeline, Pipeline
 from sklearn.linear_model import LinearRegression
 
 class Model:
     '''
-    a class that reads different types of regression model,
-    gives back the plot of each model and calculates the score and cross-validation score of each model
-    to determine which model fits the data better.
+    This a class that takes different types of regression models and
+    gives back plots of each model, the R-squared score, and the cross-validation score.
     '''
     
     def __init__(self, model, X, y, title):
         '''
-        initialize model and variables
-        split the data into train and test groups
-        and fit the train data using the model
+        Initialize model and variables
+        Split the data into train and test groups
+        and fit the model.
         Args:
-        regression via PolynomialRegression()
-        predictor and target data X and y
-        short name of the model
-        Returns:
-        None
+        model : Regression model via PolynomialRegression()
+        X: predictor data
+        y: target data
+        title: short name of the model
         '''
+        if not isinstance(model, Pipeline):
+            raise TypeError("Input model must be of type sklearn.pipeline.Pipeline.")
+        
+        if pd.DataFrame(y).shape[1] != 1:
+            raise ValueError("Input y must only have one column.")
+        
         self.m = model
+        
         self.X = X
         self.y = y
         self.t = title
@@ -37,13 +43,13 @@ class Model:
         
     def __str__(self):
         '''
-        returns information about the chosen model
+        Returns some information about the model.
         '''
         return "This is a {} model which predicts {} using the following predictors: {}.".format(self.t, self.y.name, ', '.join(self.X.columns))
     
     def plot(self):
         '''
-        shows regression plots about each feature in predictor data and target data sale prices
+        Makes regression plots for each feature in predictor data.
         '''
         xfit = np.linspace(0.01, self.X_train.max(), 1000 * self.n) # new x
         yfit = self.m.predict(xfit) # corresponding f(new x)
@@ -58,25 +64,20 @@ class Model:
         
     def score(self):
         '''
-        Args:
-        None
-        Returns:
-        the coefficient of determination of the prediction
+        Returns: The coefficient of determination of the model on the test set
         '''
         return self.m.score(self.X_test, self.y_test)
     
     def cv_score(self, cv = 10):
         '''
-        Args:
-        None
-        Returns:
-        the cross-validation score with 10 splits
+        Returns: the cross-validation score with given number of splits
         '''
         return cross_val_score(self.m, self.X_train, self.y_train, cv = 10).mean()
 
+
 def data_encoder(data):
     """
-    Encode all categorical values in the dataframe into numeric values
+    Encode all categorical values in the dataframe into numeric values.
     
     @param data: the original dataframe
     @return data: the same dataframe with all categorical variables encoded
@@ -93,10 +94,6 @@ def data_encoder(data):
 
 def PolynomialRegression(degree=2, **kwargs):
     '''
-    generare a polynomial feature
-    Args:
-    degree of the polynomial regression
-    Returns:
-    the polynomial matrix with degree n
+    Generate a polynomial regression model with given degree.
     '''
     return make_pipeline(preprocessing.PolynomialFeatures(degree), LinearRegression(**kwargs))

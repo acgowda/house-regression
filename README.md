@@ -1,4 +1,4 @@
-# Housing prices-Regression
+# Housing Prices Regression
 
 Group members: Ananda Gowda, Jingqi Feng
 
@@ -32,7 +32,7 @@ From the plots we can see there is positive correlation in for each variable wit
 	- pr.plot() makes regression plots for each feature in predictor data.
 <img width="1152" alt="Screen Shot 2022-03-10 at 11 27 53 PM" src="https://user-images.githubusercontent.com/97149691/157821907-d98fe5cb-8b0e-46ce-8218-2bce0ad4ff4e.png">
 
-From the cross validation score of each model, we can conclude that the linear regression model fits the data better, so we can choose that to predict the housing prices.
+By comparing the cross validation score from each model, the one with higher score is better to predict the housing prices.
 
 8. Exception handling examples:
 	- if the input model is not of type sklearn.pipeline.Pipeline, you can expect that a TypeError.

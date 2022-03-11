@@ -21,7 +21,8 @@ In this heatmap, you can see each block contains the correlation coefficient bet
 	- lr.score() returns the coefficient of determination of the model on the test set. You can expect to see a score similar to what we got in the demo: 0.790836173580768
 	- lr.cv_score() gives the cross-validation score with 10 splits. You can expect to see a score similar to the one in the demo: 0.7137855247852978.
 	- lr.plot() makes regression plots for each feature in predictor data.
-<img width="1138" alt="Screen Shot 2022-03-10 at 9 02 46 PM" src="https://user-images.githubusercontent.com/97149691/157805386-7a9b5ac6-e385-49a0-b9b1-b779ca3dd0ff.png">
+<img width="1151" alt="Screen Shot 2022-03-10 at 11 27 34 PM" src="https://user-images.githubusercontent.com/97149691/157821858-fc7d6d67-22f3-47d7-a379-f0fb878fc8b9.png">
+
 From the plots we can see there is positive correlation in for each variable with the saleprice. "OverallQual" and "GarageCars" are discrete variables so the plots contain straight lines.
 
 7. If the degree is 2, this means the model is a ploynomial regression. (In the demo file, we named it as "pr")
@@ -29,7 +30,8 @@ From the plots we can see there is positive correlation in for each variable wit
 	- pr.score() returns the coefficient of determination of the model on the test set. You can expect to see a score similar to what we got in the demo: 0.7449598840766081
 	- pr.cv_score() gives the cross-validation score with given number of splits. You can expect to see a score similar to the one in the demo: 0.7321932749005293
 	- pr.plot() makes regression plots for each feature in predictor data.
-<img width="1137" alt="Screen Shot 2022-03-10 at 8 57 41 PM" src="https://user-images.githubusercontent.com/97149691/157804865-e20d7eb9-c19d-45c5-a586-aa8dff8315d6.png">
+<img width="1152" alt="Screen Shot 2022-03-10 at 11 27 53 PM" src="https://user-images.githubusercontent.com/97149691/157821907-d98fe5cb-8b0e-46ce-8218-2bce0ad4ff4e.png">
+
 From the cross validation score of each model, we can conclude that the ploynomial regression model with degree 2 fits the data better, so we can choose that to predict the housing prices.
 
 8. Exception handling examples:

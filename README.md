@@ -18,8 +18,8 @@ In this heatmap, you can see each block contains the correlation coefficient bet
 5. Data analyzing step: import the class Model and function PolynomialRegression.
 6. If the degree is 1, this means the model is the linear regression. (In the demo file, we named it as "lr")
 	- print(lr) gives some information about the linear regression model. In the demo file, you can expect to see "This is a linreg model which predicts SalePrice using the following predictors: OverallQual, GrLivArea, GarageCars, TotalBsmtSF."
-	- lr.score() returns the coefficient of determination of the model on the test set. You can expect to see a score similar to what we got in the demo: 0.790836173580768
-	- lr.cv_score() gives the cross-validation score with 10 splits. You can expect to see a score similar to the one in the demo: 0.7137855247852978.
+	- lr.score() returns the coefficient of determination of the model on the test set. You can expect to see a score similar to what we got in the demo: 0.6378949534299757
+	- lr.cv_score() gives the cross-validation score with 10 splits. You can expect to see a score similar to the one in the demo: 0.8017083603822901
 	- lr.plot() makes regression plots for each feature in predictor data.
 <img width="1151" alt="Screen Shot 2022-03-10 at 11 27 34 PM" src="https://user-images.githubusercontent.com/97149691/157821858-fc7d6d67-22f3-47d7-a379-f0fb878fc8b9.png">
 
@@ -27,8 +27,8 @@ From the plots we can see there is positive correlation in for each variable wit
 
 7. If the degree is 2, this means the model is a ploynomial regression. (In the demo file, we named it as "pr")
 	- print(pr) gives some information about the linear regression model. In the demo file, you can expect to see "This is a polyreg model which predicts SalePrice using the following predictors: OverallQual, GrLivArea, GarageCars, TotalBsmtSF."
-	- pr.score() returns the coefficient of determination of the model on the test set. You can expect to see a score similar to what we got in the demo: 0.7449598840766081
-	- pr.cv_score() gives the cross-validation score with given number of splits. You can expect to see a score similar to the one in the demo: 0.7321932749005293
+	- pr.score() returns the coefficient of determination of the model on the test set. You can expect to see a score similar to what we got in the demo: 0.7557381509398194
+	- pr.cv_score() gives the cross-validation score with given number of splits. You can expect to see a score similar to the one in the demo: 0.6574882245315767
 	- pr.plot() makes regression plots for each feature in predictor data.
 <img width="1152" alt="Screen Shot 2022-03-10 at 11 27 53 PM" src="https://user-images.githubusercontent.com/97149691/157821907-d98fe5cb-8b0e-46ce-8218-2bce0ad4ff4e.png">
 

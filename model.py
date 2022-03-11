@@ -59,6 +59,7 @@ class Model:
             ax[i].scatter(self.X_train.iloc[:,i], self.y_train, label = "data points", alpha = 0.5)
             ax[i].plot(xfit[:,i], yfit, 'r', label='prediction model')
             ax[i].set(xlabel=self.X.columns[i], ylabel=self.y.name)
+        fig.suptitle("Predicted Values vs. Training Set")
         plt.legend(fontsize=20)
         plt.show()
         

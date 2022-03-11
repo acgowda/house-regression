@@ -49,17 +49,15 @@ class Model:
     
     def plot(self):
         '''
-        Makes regression plots for each feature in predictor data.
+        Plots all of the predictor variables versus the target variable.
         '''
-        xfit = np.linspace(0.01, self.X_train.max(), 1000 * self.n) # new x
-        yfit = self.m.predict(xfit) # corresponding f(new x)
-
+        
         fig, ax = plt.subplots(1, self.n, figsize=(8*self.n, 8))
         for i in range(self.n):
             ax[i].scatter(self.X_train.iloc[:,i], self.y_train, label = "data points", alpha = 0.5)
-            ax[i].plot(xfit[:,i], yfit, 'r', label='prediction model')
             ax[i].set(xlabel=self.X.columns[i], ylabel=self.y.name)
-        fig.suptitle("Predicted Values vs. Training Set")
+            
+        fig.suptitle("Target vs. Predictors")
         plt.legend(fontsize=20)
         plt.show()
         

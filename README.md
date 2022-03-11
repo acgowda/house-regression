@@ -1,4 +1,4 @@
-# Housing prices-Regression
+# Housing Prices Regression
 
 Group members: Ananda Gowda, Jingqi Feng
 

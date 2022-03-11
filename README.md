@@ -18,8 +18,8 @@ In this heatmap, you can see each block contains the correlation coefficient bet
 5. Data analyzing step: import the class Model and function PolynomialRegression.
 6. If the degree is 1, this means the model is the linear regression. (In the demo file, we named it as "lr")
 	- print(lr) gives some information about the linear regression model. In the demo file, you can expect to see "This is a linreg model which predicts SalePrice using the following predictors: OverallQual, GrLivArea, GarageCars, TotalBsmtSF."
-	- lr.score() returns the coefficient of determination of the model on the test set. We got a score 0.6378949534299757 in the demo.
-	- lr.cv_score() gives the cross-validation score with 10 splits. We got a score 0.8017083603822901.
+	- lr.score() returns the coefficient of determination of the model on the test set. We got a score 0.6594662034635388 in the demo.
+	- lr.cv_score() gives the cross-validation score with 10 splits. We got a score 0.79596462234986.
 	- lr.plot() makes regression plots for each feature in predictor data.
 <img width="1151" alt="Screen Shot 2022-03-10 at 11 27 34 PM" src="https://user-images.githubusercontent.com/97149691/157821858-fc7d6d67-22f3-47d7-a379-f0fb878fc8b9.png">
 
@@ -27,12 +27,12 @@ From the plots we can see there is positive correlation in for each variable wit
 
 7. If the degree is 2, this means the model is a ploynomial regression. (In the demo file, we named it as "pr")
 	- print(pr) gives some information about the linear regression model. In the demo file, you can expect to see "This is a polyreg model which predicts SalePrice using the following predictors: OverallQual, GrLivArea, GarageCars, TotalBsmtSF."
-	- pr.score() returns the coefficient of determination of the model on the test set. We got a score 0.7557381509398194 in the demo.
-	- pr.cv_score() gives the cross-validation score with given number of splits. We got a score 0.6574882245315767 in the demo.
+	- pr.score() returns the coefficient of determination of the model on the test set. We got a score 0.8395161805875058 in the demo.
+	- pr.cv_score() gives the cross-validation score with given number of splits. We got a score 0.7998677277567371 in the demo.
 	- pr.plot() makes regression plots for each feature in predictor data.
 <img width="1152" alt="Screen Shot 2022-03-10 at 11 27 53 PM" src="https://user-images.githubusercontent.com/97149691/157821907-d98fe5cb-8b0e-46ce-8218-2bce0ad4ff4e.png">
 
-By comparing the cross validation score from each model, the one with higher score is better to predict the housing prices. You will receive different scores for each run due to randomness.
+By comparing the cross validation score from each model, the one with higher score is better to predict the housing prices. You will receive different scores for each run due to randomness. In the demo file, we can conclude that the polynomial regression with degree 2 is better since it has a higher cross-validation score.
 
 8. Exception handling examples:
 	- if the input model is not of type sklearn.pipeline.Pipeline, you can expect that a TypeError.
